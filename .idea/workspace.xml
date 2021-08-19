@@ -8,7 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/p1AP_CS-A_2021-2022" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1wr3U9o6Uqy0fWDERfBI3weJEjC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,10 +20,15 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="u01_TheBasics.s01_PrintStatements_Variables" />
       <module name="p1AP_CS-A_2021-2022" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -32,6 +37,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -43,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629202892297</updated>
-      <workItem from="1629202896179" duration="210000" />
+      <workItem from="1629202896179" duration="6487000" />
     </task>
     <servers />
   </component>
@@ -51,13 +61,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="87" key="FileChooserDialogImpl" timestamp="1629202918725">
+    <state x="402" y="87" key="FileChooserDialogImpl" timestamp="1629205830549">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="421" y="87" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1629202918725" />
-    <state x="91" y="0" key="new project wizard" timestamp="1629202924129">
+    <state x="402" y="87" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1629205830549" />
+    <state width="1281" height="164" key="GridCell.Tab.0.bottom" timestamp="1629375290984">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="91" y="0" key="new project wizard/0.0.1280.689@0.0.1280.689" timestamp="1629202924129" />
+    <state width="1281" height="182" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1629293346486">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1280.689@0.0.1280.689" timestamp="1629293346486" />
+    <state width="1281" height="164" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1629375290984" />
+    <state width="1281" height="164" key="GridCell.Tab.0.center" timestamp="1629375290983">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1629293346485">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.center.inPresentationMode/0.0.1280.689@0.0.1280.689" timestamp="1629293346485" />
+    <state width="1281" height="164" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1629375290982" />
+    <state width="1281" height="164" key="GridCell.Tab.0.left" timestamp="1629375290980">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1629293346484">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.left.inPresentationMode/0.0.1280.689@0.0.1280.689" timestamp="1629293346484" />
+    <state width="1281" height="164" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1629375290980" />
+    <state width="1281" height="164" key="GridCell.Tab.0.right" timestamp="1629375290984">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1629293346486">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1281" height="182" key="GridCell.Tab.0.right.inPresentationMode/0.0.1280.689@0.0.1280.689" timestamp="1629293346486" />
+    <state width="1281" height="164" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1629375290984" />
+    <state x="97" y="0" key="SettingsEditor" timestamp="1629291805762">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="97" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1629291805762" />
+    <state x="91" y="0" key="new project wizard" timestamp="1629205901321">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="91" y="0" key="new project wizard/0.0.1280.689@0.0.1280.689" timestamp="1629205901321" />
   </component>
 </project>
