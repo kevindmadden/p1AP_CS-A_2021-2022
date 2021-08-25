@@ -76,6 +76,18 @@ public class s02_Operators {
         count++; //increments count by 1
         count--; //decrements count by 1
 
+        /*
+            Casting
+         */
+
+        int startsAsInt1 = 8;
+        int startsAsInt2 = 3;
+        System.out.println("Casting stuff! \n");
+        System.out.println(startsAsInt1/startsAsInt2); //prints out 2
+        System.out.println( (double)startsAsInt1 / startsAsInt2 ); //print out solution with decimal
+
+
+
 
 
 
