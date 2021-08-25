@@ -17,7 +17,7 @@ public class s01_KeyboardInput {
         //  kb.nextInt() to kb.nextLine())
         kb.nextLine();
         System.out.println("Enter something on keyboard");
-        String typedMessage = kb.nextLine();
+        String typedMessage = "hello world!";
         System.out.println("This is what we typed: " + typedMessage);
 
         System.out.println("Enter an integer:");
