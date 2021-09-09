@@ -18,10 +18,9 @@ public class s06_MouseInputClickingV3 {
             double cursorY = StdDraw.mouseY();
 
             boolean isClicked = false;
-            if(didPressDown && !StdDraw.isMousePressed()){ //if pressed down in previous frame but not pressed down in current frame...
+            if(didPressDown==true && StdDraw.isMousePressed()==false){ //if pressed down in previous frame but not pressed down in current frame...
                 isClicked = true;
             }
-            didPressDown = StdDraw.isMousePressed(); //save off for next frame
 
             if(isClicked){
                 if(hoverColor.equals(StdDraw.YELLOW)){
@@ -44,7 +43,7 @@ public class s06_MouseInputClickingV3 {
             StdDraw.filledRectangle(50, 50, 10, 5);
 
 
-
+            didPressDown = StdDraw.isMousePressed(); //save off for next frame
             StdDraw.show(); //Because we have called StdDraw.enableDoubleBuffering(), everything that you draw up until this point will be loaded into java's memory but not actually drawn. Calling StdDraw.draw() then draws everything at once that is loaded into java's memory.
             StdDraw.pause((int)(timeElapsed*1000)); //You must pass to the pause method the number of milliseconds to pause for; so we multiply by 1000 because our timeElapsed variable is in seconds, not milliseconds.
             StdDraw.clear(); //This clears everything drawn on the screen. You must redraw the image you wish to display for each frame of an animation
