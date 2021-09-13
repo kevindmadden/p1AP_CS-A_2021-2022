@@ -18,13 +18,7 @@ public class s04_FirstAnimation {
             // What we are trying to do:
             //new position  = former position + vel*timeElapsed
             xPos = xPos + xVel*timeElapsed;
-
-
             StdDraw.rectangle(xPos,50,10, 7);
-
-
-
-
 
 
             StdDraw.show(); //Because we have called StdDraw.enableDoubleBuffering(), everything that you draw up until this point will be loaded into java's memory but not actually drawn. Calling StdDraw.draw() then draws everything at once that is loaded into java's memory.
