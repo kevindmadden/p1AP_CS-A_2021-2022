@@ -2,6 +2,11 @@ package u03_ArraysAndLoops;
 
 public class s03_SnowAnimation {
 
+
+    public static double randomizeXCoordinate(){
+        return Math.random()*100;
+    }
+
     public static void main(String[] args){
         StdDraw.setScale(0, 100);
         StdDraw.enableDoubleBuffering(); //Calling this method stops things from being drawn immediately after a draw method is called. This allows you to call many different draw methods without anything being drawn on the screen; when you call StdDraw.show(), everything will be drawn at once.
@@ -10,19 +15,18 @@ public class s03_SnowAnimation {
         double[] yPos = new double[500];
 
         for(int i=0; i<yPos.length; i++){
-            int randomNum = ((int)(Math.random()*50))+100;
+            double randomNum = ((Math.random()*100))+100;
             yPos[i] = randomNum;
             //System.out.println(yPos[i]);
         }
 
         for(int i=0; i<xPos.length; i++){
-            int randomNum = ((int)(Math.random()*100));
-            xPos[i] = randomNum;
+            xPos[i] = randomizeXCoordinate();
             //System.out.println(xPos[i]);
         }
 
 
-        double yVel = 10;
+        double yVel = 99;
 
         double timeElapsed = 0.017; //0.017 seconds-- this is how long each frame of our animation appears.
         while(true){
@@ -31,12 +35,20 @@ public class s03_SnowAnimation {
             StdDraw.filledRectangle(50, 50, 50, 50);
 
             for(int i=0; i < yPos.length; i++){
-                yPos[i] = yPos[i] + yVel*timeElapsed;
+                yPos[i] = yPos[i] - yVel*timeElapsed;
             }
 
             for(int i=0; i < yPos.length; i++){
                 StdDraw.setPenColor(StdDraw.WHITE);
-                //StdDraw.filledCircle();
+                StdDraw.filledCircle(xPos[i], yPos[i], .2);
+            }
+
+            //Reset Snowflake Position
+            for(int i=0; i < yPos.length; i++){
+                if(yPos[i] <= 0){
+                    yPos[i] = 100;
+                    xPos[i] = randomizeXCoordinate();
+                }
             }
 
 
