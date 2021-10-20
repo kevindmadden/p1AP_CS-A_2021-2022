@@ -26,7 +26,7 @@ public class s05_MoreOnForLoops {
         return arr;
     }
 
-    //Printing out front to back
+    //Printing out front to back.
     public static void printFrontToBack(int[] arr){
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i]+"," );
