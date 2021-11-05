@@ -17,4 +17,14 @@ public class Duck {
         isAlive = true;
     }
 
+    public void honk(){
+        numOfTimesHonked++;
+        System.out.println(speechContent);
+    }
+
+    //Getter Method
+    public int getNumOfTimesHonked(){
+        return numOfTimesHonked;
+    }
+
 }

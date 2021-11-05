@@ -6,10 +6,11 @@ public class Main {
 
         Duck duck1 = new Duck();
         Duck duck2 = new Duck();
-        //String word = duck1.speechContent;
-        for(int i=0; i<99; i++){
-            //System.out.println(word);
-        }
+
+        duck1.honk();
+        System.out.println(duck1.getNumOfTimesHonked());
+        System.out.println(duck2.getNumOfTimesHonked());
+
 
     }
 }
