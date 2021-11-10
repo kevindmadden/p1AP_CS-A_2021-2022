@@ -17,12 +17,19 @@ public class Main {
             StdDraw.setPenColor(StdDraw.BLACK);
             StdDraw.filledRectangle(50, 50, 50, 50);
 
-            for(int i=0; i<snowflakes.length;i++){
+            /*for(int i=0; i<snowflakes.length;i++){
                 snowflakes[i].calculate(timeElapsed);
+            }*/
+            //The above for-loop is equivalent to the below for-each loop
+            for(Snowflake snowflake : snowflakes){
+                snowflake.calculate(timeElapsed);
             }
 
-            for(int i=0; i<snowflakes.length;i++){
+            /*for(int i=0; i<snowflakes.length;i++){
                 snowflakes[i].draw();
+            }*/
+            for(Snowflake snowflake : snowflakes){
+                snowflake.draw();
             }
 
             StdDraw.show(); //Because we have called StdDraw.enableDoubleBuffering(), everything that you draw up until this point will be loaded into java's memory but not actually drawn. Calling StdDraw.draw() then draws everything at once that is loaded into java's memory.

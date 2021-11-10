@@ -11,12 +11,11 @@ public class Snowflake {
         yPos = Math.random()*100+25;
         xPos = Math.random()*100;
         size = Math.random()*2+.5;
-        yVel = 30;
+        yVel = Math.random()*50+20;
     }
 
     public void calculate(double timeElapsed){
         yPos = yPos - yVel*timeElapsed;
-        System.out.println(yPos);
     }
 
     public void draw(){
