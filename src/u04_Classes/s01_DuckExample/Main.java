@@ -11,6 +11,10 @@ public class Main {
         System.out.println(duck1.getNumOfTimesHonked());
         System.out.println(duck2.getNumOfTimesHonked());
 
+        duck1.setNumOfTimesHonked(999999);
+
+        System.out.println(duck1.toString());
+
 
     }
 }
