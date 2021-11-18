@@ -9,6 +9,9 @@ public class Duck {
     private boolean isFlying;
     private boolean isAlive;
 
+    //Static variable
+    private static int totalNumOfHonks = 0;
+
     public Duck(){
         numOfTimesHonked = 0;
         speechContent = "I'm a duck.";
@@ -19,8 +22,22 @@ public class Duck {
 
     public void honk(){
         numOfTimesHonked++;
+        totalNumOfHonks++;
+        //System.out.println("totalNumOfHonks: "+totalNumOfHonks); //Prints out total num of honks
         System.out.println(speechContent);
     }
+
+    public static int getTotalNumOfHonks(){
+        Math.random();
+        //speechContent = "something random";
+        return totalNumOfHonks;
+    }
+
+
+
+
+    //In intellij: Right-click => generate
+    //You can generate getters and setters and toString
 
     //Getter Method/Accessor Method
     public int getNumOfTimesHonked(){
