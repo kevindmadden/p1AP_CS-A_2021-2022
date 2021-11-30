@@ -14,6 +14,7 @@ public class Spaceship {
     private double yVel;
     private double xAccel;
     private double yAccel;
+    private double accel;
 
 
 
@@ -24,11 +25,10 @@ public class Spaceship {
         yPos = 50;
         xVel = 0;
         yVel = 0;
-        xAccel = 0;
-        yAccel = 0;
+        accel = 0;
     }
 
-    public void calculate(){
+    public void calculate(double timeElapsed){
         xRatio = Math.sin(Math.toRadians(degrees))*(-1);
         yRatio = Math.cos(Math.toRadians(degrees));
 
@@ -47,8 +47,17 @@ public class Spaceship {
 
         //Rocket Boost Calculations
         if(StdDraw.isKeyPressed(KeyEvent.VK_UP)){
-
+            accel = 20;
+        }else{
+            accel = 0;
         }
+
+        //xPos = xPos + vel*timeElapsed + accel*(timeelapsed)^2
+        xVel = xVel + accel*timeElapsed;
+        xPos = xPos + xVel*timeElapsed;
+        yVel = yVel + accel*timeElapsed;
+        yPos = yPos + yVel*timeElapsed;
+
 
 
 
