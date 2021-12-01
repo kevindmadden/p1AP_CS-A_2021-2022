@@ -39,25 +39,44 @@ public class Spaceship {
         if(StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)){
             degrees = degrees - 5;
         }
-        System.out.println(degrees);
-        System.out.println("x: " + xRatio);
-        System.out.println("y: " + yRatio);
+        //System.out.println(degrees);
+        //System.out.println("x: " + xRatio);
+        //System.out.println("y: " + yRatio);
 
 
 
         //Rocket Boost Calculations
         if(StdDraw.isKeyPressed(KeyEvent.VK_UP)){
             accel = 20;
+
         }else{
-            accel = 0;
+            //accel = ;
+            //accel = accel <= 0 ? accel*.05 : -accel*.05;
+
+
+            //Sometimes we want the accel to be negative!!
+            if(yVel > 0 || xVel > 0){
+                if(accel <= 0){
+                    accel=accel*5;
+                }else{
+                    accel = -accel*5;
+                }
+            }else{
+                accel = 0;
+                xVel = 0;
+                yVel = 0;
+            }
+
         }
 
         //xPos = xPos + vel*timeElapsed + accel*(timeelapsed)^2
-        xVel = xVel + accel*timeElapsed;
+        xVel = xVel + (xRatio*accel)*timeElapsed;
         xPos = xPos + xVel*timeElapsed;
-        yVel = yVel + accel*timeElapsed;
+        yVel = yVel + (yRatio*accel)*timeElapsed;
         yPos = yPos + yVel*timeElapsed;
 
+        System.out.println(yVel);
+        System.out.println("accel: "+accel);
 
 
 
