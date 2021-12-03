@@ -15,7 +15,10 @@ public class Spaceship {
     private double xAccel;
     private double yAccel;
     private double accel;
-
+    private double scaledHeight;
+    private double scaledWidth;
+    private Bullet[] bullets = new Bullet[100];
+    private int counter;
 
 
     public Spaceship(){
@@ -26,6 +29,8 @@ public class Spaceship {
         xVel = 0;
         yVel = 0;
         accel = 0;
+        scaledHeight = 10;
+        scaledWidth = 10;
     }
 
     public void calculate(double timeElapsed){
@@ -39,9 +44,15 @@ public class Spaceship {
         if(StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)){
             degrees = degrees - 5;
         }
-        //System.out.println(degrees);
-        //System.out.println("x: " + xRatio);
-        //System.out.println("y: " + yRatio);
+        if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){
+            Bullet bullet = new Bullet(this.xPos, this.yPos, this.xRatio, this.yRatio);
+            bullets[counter] = bullet;
+            counter++;
+            if(counter >= 100){
+                counter = 0;
+            }
+
+        }
 
 
 
@@ -50,22 +61,11 @@ public class Spaceship {
             accel = 20;
 
         }else{
-            //accel = ;
-            //accel = accel <= 0 ? accel*.05 : -accel*.05;
 
-
-            //Sometimes we want the accel to be negative!!
-            if(yVel > 0 || xVel > 0){
-                if(accel <= 0){
-                    accel=accel*5;
-                }else{
-                    accel = -accel*5;
-                }
-            }else{
-                accel = 0;
-                xVel = 0;
-                yVel = 0;
-            }
+            accel = 0; //stops rocket boost
+            //This gradually slows down the velocity when the up arrow isn't pressed
+            xVel = xVel*0.95;
+            yVel = yVel*0.95;
 
         }
 
@@ -78,6 +78,18 @@ public class Spaceship {
         System.out.println(yVel);
         System.out.println("accel: "+accel);
 
+        if(yPos-scaledHeight*0.5 > 100){
+            yPos = 1;
+        }else if(yPos+scaledHeight*0.5 < 0){
+            yPos = 96;
+        }
+
+        if(xPos+scaledWidth*.5 < 0){
+            xPos = 99;
+        }else if(xPos-scaledWidth*.5 > 100){
+            xPos = 1;
+        }
+
 
 
     }
@@ -85,7 +97,7 @@ public class Spaceship {
     public void draw(){
         //StdDraw.setPenColor(StdDraw.YELLOW); testing
         //StdDraw.line(50, 50, 50+xRatio*100, 50+yRatio*10);
-        StdDraw.picture(xPos, yPos, "Spaceship.png", 10, 10, degrees);
+        StdDraw.picture(xPos, yPos, "Spaceship.png", scaledWidth, scaledHeight, degrees);
     }
 
     public double getxRatio() {
@@ -102,5 +114,9 @@ public class Spaceship {
 
     public double getyPos() {
         return yPos;
+    }
+
+    public Bullet[] getBullets() {
+        return bullets;
     }
 }
