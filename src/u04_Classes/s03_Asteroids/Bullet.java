@@ -19,7 +19,7 @@ public class Bullet {
         this.yRatio = yRatio;
         this.xVel = 100*xRatio;
         this.yVel = 100*yRatio;
-        this.radius = 3;
+        this.radius = 0.5;
     }
 
     public void calculate(double timeElapsed){

@@ -31,6 +31,7 @@ public class Spaceship {
         accel = 0;
         scaledHeight = 10;
         scaledWidth = 10;
+        counter = 0;
     }
 
     public void calculate(double timeElapsed){
