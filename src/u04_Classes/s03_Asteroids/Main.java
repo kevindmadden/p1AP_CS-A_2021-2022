@@ -1,7 +1,5 @@
 package u04_Classes.s03_Asteroids;
 
-import java.awt.event.KeyEvent;
-
 public class Main {
 
     /*
@@ -28,11 +26,15 @@ public class Main {
 
     public static void main(String[] args){
         Spaceship spaceship = new Spaceship();
+        Asteroid[] asteroids = new Asteroid[100];
+        for(int i=0; i<asteroids.length; i++){
+            asteroids[i] = new Asteroid(Math.random()*100, Math.random()*100, Math.random()*200-100, Math.random()*200-100, 4);
+        }
+
 
         StdDraw.setScale(0, 100);
         StdDraw.enableDoubleBuffering(); //Calling this method stops things from being drawn immediately after a draw method is called. This allows you to call many different draw methods without anything being drawn on the screen; when you call StdDraw.show(), everything will be drawn at once.
         double timeElapsed = 0.017; //0.017 seconds-- this is how long each frame of our animation appears.
-
         while(true){
 
             StdDraw.setPenColor(StdDraw.BLACK);
@@ -40,8 +42,10 @@ public class Main {
 
             Bullet[] bullets = spaceship.getBullets();
 
-            //Calculations
+            //Spaceship
             spaceship.calculate(timeElapsed);
+
+            //Bullets
             for(Bullet bullet : bullets){
                 if(bullet!=null){
                     bullet.calculate(timeElapsed);
@@ -49,8 +53,14 @@ public class Main {
                 }
             }
 
-            //Draw
+
+            //Asteroids
             spaceship.draw();
+            for(Asteroid asteroid : asteroids){
+                asteroid.calculate(timeElapsed);
+                asteroid.draw();
+            }
+
 
 
             StdDraw.show(); //Because we have called StdDraw.enableDoubleBuffering(), everything that you draw up until this point will be loaded into java's memory but not actually drawn. Calling StdDraw.draw() then draws everything at once that is loaded into java's memory.
