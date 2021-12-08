@@ -117,6 +117,14 @@ public class Spaceship {
         return yPos;
     }
 
+    public double getScaledHeight() {
+        return scaledHeight;
+    }
+
+    public double getScaledWidth() {
+        return scaledWidth;
+    }
+
     public Bullet[] getBullets() {
         return bullets;
     }

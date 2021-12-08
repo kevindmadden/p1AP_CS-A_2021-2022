@@ -29,7 +29,15 @@ public class Asteroid {
         StdDraw.filledCircle(xPos, yPos, radius);
     }
 
+    public double getxPos() {
+        return xPos;
+    }
 
+    public double getyPos() {
+        return yPos;
+    }
 
-
+    public double getRadius() {
+        return radius;
+    }
 }

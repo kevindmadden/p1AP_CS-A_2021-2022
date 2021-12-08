@@ -3,26 +3,24 @@ package u04_Classes.s03_Asteroids;
 public class Main {
 
     /*
-            Brainstorming
-            -Player spaceship
-                -Shape - Collision Detection
-                -Movement
-                    -Making it possible for the ship to rotate
-                        -What direction is it pointing in?
-                    -Keyboard input
-                    -There's a maximum velocity
-                    -Controlling acceleration
-                    -v=v+a*timeElapsed
-                    -
-                -Shooting
+            TODO:
+            -When checking for collisions between asteroids and bullets, you'll need a for-loop nested in another for-loop.
             -Asteroids
-                -Second thing to focus on
-                -First focus on asteroids disappearing when shot
-                    -Then focus on them breaking apart
-            -Alien Ships
-            -Sound effects? (StdDraw doesn't support)
+                -Wrap-around logic for when asteroid reaches edge of screen
+                -Asteroids get smaller the more you shoot them
+                -Start off with 5 asteroids on screen (get stored in index 0-4)
+                    -For ex, let's say you shoot the asteroid at index 2.
+                        -Shrink the asteroid at index 2. Add another asteroid at index 5. Both asteroids are Medium size.
+                        -You shoot the medium asteroid at index 2.
+                            -Shrink the asteroid at index 2. Add another asteroid at index 6. Both asteroids are Small.
+                                -You shoot the small asteroid at index 6.
+                                -Whenever shoot a small asteroid, it disappears.
+                                    -Ideas on how to indicate asteroid has disappeared: changing value to null (alternatively, you could flip a boolean flag to have it no longer be visible).
+                                        -Let's say you shoot the Large asteroid at index 1.
+                                            -This should give you two new asteroids that are medium in size. For the asteroid at index 1, just shrink it. For the other asteroid, add it at index 7.
 
-     */
+
+                    */
 
     public static void main(String[] args){
         Spaceship spaceship = new Spaceship();
@@ -48,16 +46,27 @@ public class Main {
             //Bullets
             for(Bullet bullet : bullets){
                 if(bullet!=null){
+
+
                     bullet.calculate(timeElapsed);
+
+
+
                     bullet.draw();
                 }
             }
+
+
 
 
             //Asteroids
             spaceship.draw();
             for(Asteroid asteroid : asteroids){
                 asteroid.calculate(timeElapsed);
+                if(didCircleCircleCollide(spaceship.getxPos(), spaceship.getyPos(), spaceship.getScaledWidth(), asteroid.getxPos(), asteroid.getyPos(), asteroid.getRadius())){
+                    System.out.println("Collision detected!\n");
+                }
+
                 asteroid.draw();
             }
 
@@ -68,6 +77,17 @@ public class Main {
             StdDraw.clear(); //This clears everything drawn on the screen. You must redraw the image you wish to display for each frame of an animation
         }
     }
+
+
+    public static boolean didCircleCircleCollide(double x1, double y1, double r1, double x2, double y2, double r2){
+        double distance = Math.sqrt( Math.pow((x1-x2), 2)  + Math.pow((y1-y2),2) );
+        if(distance >= r1+r2){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 
 
 }
