@@ -69,6 +69,12 @@ public class Main {
 
                 asteroid.draw();
             }
+            for(Asteroid asteroid : asteroids){
+                for(Bullet bullet : bullets){
+                    asteroid.calculate(timeElapsed);
+                }
+            }
+
 
 
 
