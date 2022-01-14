@@ -13,14 +13,16 @@ public class Checker {
         if(this.playerNum == 1){
             color = Color.WHITE;
         }else{
-            color = Color.GREEN;
+            color = new Color(207,156,99);
         }
         this.isKing = false;
     }
 
     public void draw(int x, int y){
         StdDraw.setPenColor(color);
-        StdDraw.filledCircle(x, y, 4);
+        StdDraw.filledCircle(x, y, 3.8);
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.circle(x, y, 3.8);
     }
 
 
