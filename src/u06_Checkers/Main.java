@@ -6,11 +6,14 @@ public class Main {
         Board board = new Board();
 
 
+
         StdDraw.setScale(0, 80);
         StdDraw.enableDoubleBuffering(); //Calling this method stops things from being drawn immediately after a draw method is called. This allows you to call many different draw methods without anything being drawn on the screen; when you call StdDraw.show(), everything will be drawn at once.
         double timeElapsed = 0.017; //0.017 seconds-- this is how long each frame of our animation appears.
         while(true){
             board.draw();
+
+
 
 
 
