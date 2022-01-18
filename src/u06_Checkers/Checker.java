@@ -6,7 +6,8 @@ public class Checker {
 
     private int playerNum;
     private Color color;
-    boolean isKing;
+    private boolean isKing;
+    private boolean isSelected;
 
     public Checker(int playerNum){
         this.playerNum = playerNum;
@@ -16,14 +17,30 @@ public class Checker {
             color = new Color(207,156,99);
         }
         this.isKing = false;
+        this.isSelected = false;
     }
 
     public void draw(int x, int y){
         StdDraw.setPenColor(color);
         StdDraw.filledCircle(x, y, 3.8);
+
+        //Outline
         StdDraw.setPenColor(StdDraw.BLACK);
+        if(this.isSelected){
+            StdDraw.setPenColor(StdDraw.YELLOW);
+        }
         StdDraw.circle(x, y, 3.8);
     }
+
+    public void selectChecker(){
+        this.isSelected = true;
+    }
+
+    public void unselectChecker(){
+        this.isSelected = false;
+    }
+
+
 
 
 
