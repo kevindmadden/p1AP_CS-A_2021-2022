@@ -78,8 +78,17 @@ public class Board {
 
             }
         }
+    }
 
+    public void unselectAllCheckers(){
+        for(int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if(board[row][col] != null){
+                    board[row][col].unselectChecker();
+                }
 
+            }
+        }
     }
 
 

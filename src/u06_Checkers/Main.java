@@ -21,13 +21,25 @@ public class Main {
             prevIsMousePressed = StdDraw.isMousePressed();
 
             if(didClickOccur){
+                board.unselectAllCheckers();
+                int clickedRow = (int)(StdDraw.mouseY()/10);
+                int clickedCol = (int)(StdDraw.mouseX()/10);
+                /*Checker[][] tempBoard = board.getBoard();
+                Checker tempChecker = tempBoard[clickedRow][clickedCol];*/
+                Checker tempChecker = (board.getBoard())[clickedRow][clickedCol]; //Above two lines of code do the same thing.
+                if(tempChecker!=null){
+                    tempChecker.selectChecker();
+                }
+
+
+
                 //Convert coordinates of mouse click [use mouseX() and mouseY()] to a row, col number
 
                 //Look at the spot in the 2D array of the row, col from above ^^ (i.e., you are getting a reference to the checker at that spot in the 2d array)
 
                     //Safety check - What happens if the user clicks on an empty spot?
-                        //If a use clicks on an empty space, then it's going to be null.
-                            //ensure that you are only calling methods on the checker if it isn't null
+                        //If a user clicks on an empty space, then it's going to be null.
+                            //ensure that you are only calling methods if there's actually a checker there
 
                 //Once you have that checker reference, call the selectChecker method.
 

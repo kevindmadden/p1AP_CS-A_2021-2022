@@ -27,8 +27,9 @@ public class Checker {
         //Outline
         StdDraw.setPenColor(StdDraw.BLACK);
         if(this.isSelected){
-            StdDraw.setPenColor(StdDraw.YELLOW);
+            StdDraw.setPenColor(StdDraw.GREEN);
         }
+        StdDraw.setPenRadius(0.007);
         StdDraw.circle(x, y, 3.8);
     }
 
