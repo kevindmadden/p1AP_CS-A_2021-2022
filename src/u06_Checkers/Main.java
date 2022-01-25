@@ -28,13 +28,7 @@ public class Main {
                 Checker selectedChecker = tempBoard[clickedRow][clickedCol];
                 if(selectedChecker!=null){
                     selectedChecker.selectChecker();
-                    for(int row = 0; row < tempBoard.length; row++) {
-                        for (int col = 0; col < tempBoard[0].length; col++) {
-                            if(tempBoard[row][col]!=null){
-                                tempBoard[row][col].canCheckerJump(tempBoard, row, col);
-                            }
-                        }
-                    }
+                    selectedChecker.highlightMovementOptions(tempBoard, clickedRow, clickedCol);
                 }
 
 

@@ -9,6 +9,14 @@ public class Checker {
     private boolean isKing;
     private boolean isSelected;
 
+    //Setting int to 0 means it can't move and/or isn't selected.
+    //               1 means it can slide in that direction.
+    //               2 means it can jump in that direction.
+    private int moveUpRight;
+    private int moveUpLeft;
+    private int moveDownLeft;
+    private int moveDownRight;
+
     public Checker(int playerNum){
         this.playerNum = playerNum;
         if(this.playerNum == 1){
@@ -18,6 +26,12 @@ public class Checker {
         }
         this.isKing = false;
         this.isSelected = false;
+        this.moveUpRight = 0;
+        this.moveUpLeft = 0;
+        this.moveDownLeft = 0;
+        this.moveDownRight = 0;
+
+
     }
 
     public void draw(int x, int y){
@@ -32,12 +46,14 @@ public class Checker {
         StdDraw.setPenRadius(0.007);
         StdDraw.circle(x, y, 3.8);
     }
+                                                            //row and col of selected checker
+    public void highlightMovementOptions(Checker[][] board, int row, int col){
+        System.out.println("row: "+row+" col: "+col + "highlightedMovementOptions");
+        if(col+1<8 && board[row+1][col+1] == null){
+            this.moveUpRight = 1;
+        }
 
-    public boolean canCheckerJump(Checker[][] board, int rowOfChecker, int colOfChecker){
 
-
-
-        return false;
     }
 
     public void selectChecker(){
@@ -49,6 +65,21 @@ public class Checker {
     }
 
 
+    public int getMoveUpRight(){
+        return this.moveUpRight;
+    }
+
+    public int getMoveUpLeft() {
+        return moveUpLeft;
+    }
+
+    public int getMoveDownLeft() {
+        return moveDownLeft;
+    }
+
+    public int getMoveDownRight() {
+        return moveDownRight;
+    }
 
 
 

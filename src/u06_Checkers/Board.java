@@ -78,6 +78,19 @@ public class Board {
 
             }
         }
+
+        for(int row=0; row<board.length; row++){
+            for(int col = 0; col < board[0].length; col++){
+                if(board[row][col] != null){
+                    Checker tempChecker = board[row][col];
+                    if(tempChecker.getMoveUpRight()==1){
+                        StdDraw.setPenColor(StdDraw.YELLOW);
+                        StdDraw.filledRectangle(col*10+15, row*10+15, 5, 5);
+                    }
+                }
+            }
+        }
+
     }
 
     public void unselectAllCheckers(){
