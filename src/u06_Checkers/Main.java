@@ -24,11 +24,17 @@ public class Main {
                 board.unselectAllCheckers();
                 int clickedRow = (int)(StdDraw.mouseY()/10);
                 int clickedCol = (int)(StdDraw.mouseX()/10);
-                /*Checker[][] tempBoard = board.getBoard();
-                Checker tempChecker = tempBoard[clickedRow][clickedCol];*/
-                Checker tempChecker = (board.getBoard())[clickedRow][clickedCol]; //Above two lines of code do the same thing.
-                if(tempChecker!=null){
-                    tempChecker.selectChecker();
+                Checker[][] tempBoard = board.getBoard();
+                Checker selectedChecker = tempBoard[clickedRow][clickedCol];
+                if(selectedChecker!=null){
+                    selectedChecker.selectChecker();
+                    for(int row = 0; row < tempBoard.length; row++) {
+                        for (int col = 0; col < tempBoard[0].length; col++) {
+                            if(tempBoard[row][col]!=null){
+                                tempBoard[row][col].canCheckerJump(tempBoard, row, col);
+                            }
+                        }
+                    }
                 }
 
 

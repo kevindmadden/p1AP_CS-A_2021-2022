@@ -33,6 +33,13 @@ public class Checker {
         StdDraw.circle(x, y, 3.8);
     }
 
+    public boolean canCheckerJump(Checker[][] board, int rowOfChecker, int colOfChecker){
+
+
+
+        return false;
+    }
+
     public void selectChecker(){
         this.isSelected = true;
     }
