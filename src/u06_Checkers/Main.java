@@ -2,6 +2,10 @@ package u06_Checkers;
 
 public class Main {
 
+    // TODO
+    // TODO
+    // The brown checkers can move to the spots that appear highlighted when the white checkers are clicked on.
+
     static final int BOARD_WIDTH = 8;
     static final int BOARD_HEIGHT = 8;
 
@@ -25,15 +29,34 @@ public class Main {
             prevIsMousePressed = StdDraw.isMousePressed();
 
             if(didClickOccur){
-                board.unselectAllCheckers();
                 int clickedRow = (int)(StdDraw.mouseY()/10);
                 int clickedCol = (int)(StdDraw.mouseX()/10);
+                boolean[][] tempHighlightedSpaces = board.getHighlightedSpots();
                 Checker[][] tempBoard = board.getBoard();
+                //if we click on a highlighted space, it moves the selected checker there
+
+                //1. Cycle thru the board and find the selected checker
+                //2. Remove the selected checker and place it on the highlighted square
+                if(tempHighlightedSpaces[clickedRow][clickedCol]==true){
+                    for(int row = 0; row < tempBoard.length; row++){
+                        for(int col = 0; col < tempBoard[0].length; col++){
+                            if(tempBoard[row][col] != null){
+                                if(tempBoard[row][col].getIsSelected()){
+                                    //Checker selectedChecker = tempBoard[row][col];
+                                    tempBoard[clickedRow][clickedCol] = tempBoard[row][col];
+                                    tempBoard[row][col] = null;
+                                }
+                            }
+                        }
+                    }
+                    System.out.println(board.toString());
+                }
+
+                board.unselectAllCheckers();
                 Checker selectedChecker = tempBoard[clickedRow][clickedCol];
                 if(selectedChecker!=null){
                     selectedChecker.selectChecker();
                     if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){
-                        boolean[][] tempHighlightedSpaces = board.getHighlightedSpots();
                         tempHighlightedSpaces[clickedRow+1][clickedCol+1] = true;
                     }
 

@@ -38,6 +38,8 @@ public class Board {
         System.out.println(this.toString());
     }
 
+
+
     public Checker[][] getBoard(){
         return board;
     }
@@ -52,7 +54,11 @@ public class Board {
         String print = "";
         for(int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
-                print += board[row][col] + " ";
+                String printMessage = null;
+                if(board[row][col]!=null){
+                    printMessage = "C   ";
+                }
+                print += printMessage + " ";
             }
             print += "\n";
         }
@@ -75,20 +81,19 @@ public class Board {
             }
         }
 
-        for(int row = 0; row < board.length; row++){
-            for(int col = 0; col < board[0].length; col++){
-                if(board[row][col] != null){
-                    board[row][col].draw(col*10+5, row*10+5);
-                }
-
-            }
-        }
-
         for(int row=0; row<highlightedSpots.length; row++){
             for(int col = 0; col < highlightedSpots[0].length; col++){
                 if(highlightedSpots[row][col]){
                     StdDraw.setPenColor(StdDraw.YELLOW);
-                    StdDraw.filledRectangle(col*10+15, row*10+15, 5, 5);
+                    StdDraw.filledRectangle(col*10+5, row*10+5, 5, 5);
+                }
+            }
+        }
+
+        for(int row = 0; row < board.length; row++){
+            for(int col = 0; col < board[0].length; col++){
+                if(board[row][col] != null){
+                    board[row][col].draw(col*10+5, row*10+5);
                 }
             }
         }

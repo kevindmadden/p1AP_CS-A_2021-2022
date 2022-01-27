@@ -52,6 +52,10 @@ public class Checker {
 
     }*/
 
+    public boolean getIsSelected(){
+        return this.isSelected;
+    }
+
     public void selectChecker(){
         this.isSelected = true;
     }
