@@ -5,9 +5,11 @@ import java.awt.*;
 public class Board {
 
     private Checker[][] board;
+    private boolean[][] highlightedSpots;
 
     public Board(){
         board = new Checker[8][8];
+        highlightedSpots = new boolean[8][8];
         board[0][0] = new Checker(1);
         board[0][2] = new Checker(1);
         board[0][4] = new Checker(1);
@@ -40,6 +42,9 @@ public class Board {
         return board;
     }
 
+    public boolean[][] getHighlightedSpots(){
+        return highlightedSpots;
+    }
 
 
     @Override
@@ -79,17 +84,16 @@ public class Board {
             }
         }
 
-        for(int row=0; row<board.length; row++){
-            for(int col = 0; col < board[0].length; col++){
-                if(board[row][col] != null){
-                    Checker tempChecker = board[row][col];
-                    if(tempChecker.getMoveUpRight()==1){
-                        StdDraw.setPenColor(StdDraw.YELLOW);
-                        StdDraw.filledRectangle(col*10+15, row*10+15, 5, 5);
-                    }
+        for(int row=0; row<highlightedSpots.length; row++){
+            for(int col = 0; col < highlightedSpots[0].length; col++){
+                if(highlightedSpots[row][col]){
+                    StdDraw.setPenColor(StdDraw.YELLOW);
+                    StdDraw.filledRectangle(col*10+15, row*10+15, 5, 5);
                 }
             }
         }
+
+
 
     }
 

@@ -1,6 +1,10 @@
 package u06_Checkers;
 
 public class Main {
+
+    static final int BOARD_WIDTH = 8;
+    static final int BOARD_HEIGHT = 8;
+
     public static void main(String[] args){
 
         Board board = new Board();
@@ -28,7 +32,11 @@ public class Main {
                 Checker selectedChecker = tempBoard[clickedRow][clickedCol];
                 if(selectedChecker!=null){
                     selectedChecker.selectChecker();
-                    selectedChecker.highlightMovementOptions(tempBoard, clickedRow, clickedCol);
+                    if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){
+                        boolean[][] tempHighlightedSpaces = board.getHighlightedSpots();
+                        tempHighlightedSpaces[clickedRow+1][clickedCol+1] = true;
+                    }
+
                 }
 
 

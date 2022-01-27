@@ -26,10 +26,10 @@ public class Checker {
         }
         this.isKing = false;
         this.isSelected = false;
-        this.moveUpRight = 0;
+        /*this.moveUpRight = 0;
         this.moveUpLeft = 0;
         this.moveDownLeft = 0;
-        this.moveDownRight = 0;
+        this.moveDownRight = 0;*/
 
 
     }
@@ -47,14 +47,10 @@ public class Checker {
         StdDraw.circle(x, y, 3.8);
     }
                                                             //row and col of selected checker
-    public void highlightMovementOptions(Checker[][] board, int row, int col){
-        System.out.println("row: "+row+" col: "+col + "highlightedMovementOptions");
-        if(col+1<8 && board[row+1][col+1] == null){
-            this.moveUpRight = 1;
-        }
+    /*public void highlightMovementOptions(Checker[][] board, int row, int col){
 
 
-    }
+    }*/
 
     public void selectChecker(){
         this.isSelected = true;
