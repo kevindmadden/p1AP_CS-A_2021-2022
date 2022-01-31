@@ -33,6 +33,7 @@ public class Main {
                 int clickedCol = (int)(StdDraw.mouseX()/10);
                 boolean[][] tempHighlightedSpaces = board.getHighlightedSpots();
                 Checker[][] tempBoard = board.getBoard();
+                boolean didClickOnHighlight = false;
                 //if we click on a highlighted space, it moves the selected checker there
 
                 //1. Cycle thru the board and find the selected checker
@@ -42,39 +43,45 @@ public class Main {
                         for(int col = 0; col < tempBoard[0].length; col++){
                             if(tempBoard[row][col] != null){
                                 if(tempBoard[row][col].getIsSelected()){
-                                    //Checker selectedChecker = tempBoard[row][col];
-                                    tempBoard[clickedRow][clickedCol] = tempBoard[row][col];
+                                    System.out.println(row+","+col);
+                                    Checker selectedChecker = tempBoard[row][col];
                                     tempBoard[row][col] = null;
+                                    tempBoard[clickedRow][clickedCol] = selectedChecker;
+                                    board.unselectAllCheckers();
+                                    board.unselectAllHighlights();
                                 }
                             }
                         }
                     }
                     System.out.println(board.toString());
-                }
+                }else{
 
-                board.unselectAllCheckers();
-                Checker selectedChecker = tempBoard[clickedRow][clickedCol];
-                if(selectedChecker!=null){
-                    selectedChecker.selectChecker();
-                    if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){
-                        tempHighlightedSpaces[clickedRow+1][clickedCol+1] = true;
+                    //Select Checker Logic
+                    Checker selectedChecker = tempBoard[clickedRow][clickedCol];
+                    board.unselectAllHighlights();
+                    board.unselectAllCheckers();
+                    if(selectedChecker!=null){
+                        selectedChecker.selectChecker(); //Select clicked checker
+                        //Creating highlights based on checker clicked
+                        if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){ //up-right 1
+                            tempHighlightedSpaces[clickedRow+1][clickedCol+1] = true;
+                        }
+                        if(clickedCol-1>=0 && tempBoard[clickedRow+1][clickedCol-1] == null){ //up-left 1
+                            tempHighlightedSpaces[clickedRow+1][clickedCol-1] = true;
+                        }
+                        if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow-1][clickedCol+1] == null){ //down-right 1
+                            tempHighlightedSpaces[clickedRow-1][clickedCol+1] = true;
+                        }
+                        if(clickedCol-1>=0 && tempBoard[clickedRow-1][clickedCol-1] == null){ //down-left 1
+                            tempHighlightedSpaces[clickedRow-1][clickedCol-1] = true;
+                        }
+
                     }
-
                 }
 
+                System.out.println(board.toString());
+                System.out.println(board.printHighlightedBoard());
 
-
-                //Convert coordinates of mouse click [use mouseX() and mouseY()] to a row, col number
-
-                //Look at the spot in the 2D array of the row, col from above ^^ (i.e., you are getting a reference to the checker at that spot in the 2d array)
-
-                    //Safety check - What happens if the user clicks on an empty spot?
-                        //If a user clicks on an empty space, then it's going to be null.
-                            //ensure that you are only calling methods if there's actually a checker there
-
-                //Once you have that checker reference, call the selectChecker method.
-
-                //Try to get things working so that when you click on another checker or an empty space, the previous selected checker gets unselected
             }
 
 

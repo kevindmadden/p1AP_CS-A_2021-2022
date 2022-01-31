@@ -49,11 +49,12 @@ public class Board {
     }
 
 
+
     @Override
     public String toString() {
         String print = "";
-        for(int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[0].length; col++) {
+        for(int row=board.length-1; row >= 0 ; row--){
+            for(int col=0; col < board[0].length; col++){
                 String printMessage = null;
                 if(board[row][col]!=null){
                     printMessage = "C   ";
@@ -61,6 +62,21 @@ public class Board {
                 print += printMessage + " ";
             }
             print += "\n";
+        }
+        return print;
+    }
+
+    public String printHighlightedBoard(){
+        String print = "";
+        for(int row=highlightedSpots.length-1; row >= 0 ; row--){
+            for(int col=0; col < highlightedSpots[0].length; col++){
+                String trueOrFalse = "F ";
+                if(highlightedSpots[row][col]==true){
+                    trueOrFalse = " T ";
+                }
+                print+=highlightedSpots[row][col];
+            }
+            print+="\n";
         }
         return print;
     }
@@ -100,6 +116,14 @@ public class Board {
 
 
 
+    }
+
+    public void unselectAllHighlights(){
+        for(int row=0; row<highlightedSpots.length; row++) {
+            for (int col = 0; col < highlightedSpots[0].length; col++) {
+                highlightedSpots[row][col] = false;
+            }
+        }
     }
 
     public void unselectAllCheckers(){
