@@ -63,16 +63,16 @@ public class Main {
                     if(selectedChecker!=null){
                         selectedChecker.selectChecker(); //Select clicked checker
                         //Creating highlights based on checker clicked
-                        if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){ //up-right 1
+                        if(clickedRow+1<=7 && clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow+1][clickedCol+1] == null){ //up-right 1
                             tempHighlightedSpaces[clickedRow+1][clickedCol+1] = true;
                         }
-                        if(clickedCol-1>=0 && tempBoard[clickedRow+1][clickedCol-1] == null){ //up-left 1
+                        if(clickedRow+1<=7 && clickedCol-1>=0 && tempBoard[clickedRow+1][clickedCol-1] == null){ //up-left 1
                             tempHighlightedSpaces[clickedRow+1][clickedCol-1] = true;
                         }
-                        if(clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow-1][clickedCol+1] == null){ //down-right 1
+                        if(clickedRow-1>=0 && clickedCol+1<BOARD_WIDTH && tempBoard[clickedRow-1][clickedCol+1] == null){ //down-right 1
                             tempHighlightedSpaces[clickedRow-1][clickedCol+1] = true;
                         }
-                        if(clickedCol-1>=0 && tempBoard[clickedRow-1][clickedCol-1] == null){ //down-left 1
+                        if(clickedRow-1>=0 && clickedCol-1>=0 && tempBoard[clickedRow-1][clickedCol-1] == null){ //down-left 1
                             tempHighlightedSpaces[clickedRow-1][clickedCol-1] = true;
                         }
 
