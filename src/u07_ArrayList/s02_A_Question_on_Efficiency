@@ -1,0 +1,11 @@
+Scenario:
+-You have a single ArrayList with the variable name: squid
+-squid contains exactly one of each integer between 0 and 200,000,000
+-The ordering of the integers in squid is completely random
+
+Task:
+-Pick a random integer between 0 and 200 million. Determine what the index location is of your chosen random integer.
+
+Question:
+-What would be an efficient way to complete this task?
+-Brainstorm and come up with an idea. Then I'll ask people to share.
