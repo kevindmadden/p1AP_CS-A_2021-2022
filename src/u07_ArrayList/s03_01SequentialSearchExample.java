@@ -1,15 +1,26 @@
 package u07_ArrayList;
-
 import java.util.ArrayList;
 
-//https://visualgo.net/en/sorting?slide=1-1 - Bubble Sort Visualization
-public class s03_SearchSortTemplate {
+public class s03_01SequentialSearchExample {
 
     public static void main(String[] args){
+
         ArrayList<Integer> list = generateRandomIntegerArrayList();
         printArrayListWithIndexNums(list);
 
+        int randomNum = (int)(Math.random()*90+10);
+        System.out.println("What index is the number "+randomNum+" at?");
 
+        int max = 99;
+        int min = 10;
+        int middle = (int)((max-min)/2.0);
+        while(middle==randomNum){
+            middle = (int)((max-min)/2.0);
+            if(randomNum == middle){
+
+            }
+
+        }
 
 
     }
@@ -39,7 +50,5 @@ public class s03_SearchSortTemplate {
         }
         System.out.println();
     }
-
-
 
 }
