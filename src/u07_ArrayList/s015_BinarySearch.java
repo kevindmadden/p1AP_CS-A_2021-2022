@@ -1,7 +1,7 @@
 package u07_ArrayList;
 import java.util.ArrayList;
 
-public class s03_01SequentialSearchExample {
+public class s015_BinarySearch {
 
     public static void main(String[] args){
 
