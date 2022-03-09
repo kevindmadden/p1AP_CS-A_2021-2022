@@ -11,7 +11,7 @@ public class s04_BubbleSortTemplate {
         printArrayListWithIndexNums(list);
 
         //Your code goes below for using bubble sort in order to get data in order
-        
+
 
     }
 
