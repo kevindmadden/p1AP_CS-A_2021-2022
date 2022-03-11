@@ -9,3 +9,16 @@ Task:
 Question:
 -What would be an efficient way to complete this task?
 -Brainstorm and come up with an idea. Then I'll ask people to share.
+
+Possible solutions:
+-Run through and check one spot at a time.
+
+Task #2:
+-Do the previous task 100,000,000 of times with a new random integer each time.
+
+Possible Solutions:
+-Each time you find the number, remove it from the array. Continue finding integers by scanning through from the start.
+
+Conclusion:
+-Sort the elements in the list first so that they are in order. And THEN do the above task easily.
+
