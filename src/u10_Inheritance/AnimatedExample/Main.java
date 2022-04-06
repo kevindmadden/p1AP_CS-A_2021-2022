@@ -7,6 +7,8 @@ public class Main {
 
         Creature creature = new Creature(50, 50, 30, 40,5);
         InescapableCreature inescapableCreature = new InescapableCreature(75, 60, 30, 20, 3);
+        GrowShrinkCreature growShrinkCreature = new GrowShrinkCreature(25, 25, 30, 20, 3);
+
 
         double timeElapsed = 0.017; //0.017 seconds-- this is how long each frame of our animation appears.
         while(true){
