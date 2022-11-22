@@ -26,7 +26,7 @@ public class Main {
         Spaceship spaceship = new Spaceship();
         Asteroid[] asteroids = new Asteroid[100];
         for(int i=0; i<asteroids.length; i++){
-            asteroids[i] = new Asteroid(Math.random()*100, Math.random()*100, Math.random()*200-100, Math.random()*200-100, 4);
+            asteroids[i] = new Asteroid(Math.random()*100, Math.random()*100, Math.random()*100-50, Math.random()*100-50, 4);
         }
 
 

@@ -27,4 +27,9 @@ public class Creature {
     public void draw(){
         StdDraw.filledCircle(xPos, yPos, radius);
     }
+
+    public void test(){
+
+    }
+
 }

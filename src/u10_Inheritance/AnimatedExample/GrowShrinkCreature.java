@@ -13,6 +13,11 @@ public class GrowShrinkCreature extends InescapableCreature {
         those are both handled by the call to super.calculate below.
          */
 
+        super.test();
         super.calculate(timeElapsed);
+    }
+
+    public void test(){
+        System.out.println("Bye!");
     }
 }

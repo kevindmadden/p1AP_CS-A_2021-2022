@@ -24,4 +24,6 @@ public class InescapableCreature extends Creature {
         super.draw();
     }
 
+
+
 }
