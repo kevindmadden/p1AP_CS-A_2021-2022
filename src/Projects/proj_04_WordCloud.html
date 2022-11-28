@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project #04 - Word Cloud Generator</title>
+</head>
+<body>
+<h1>Project #04 - Word Cloud Generator</h1>
+<h2>Description:</h2>
+    <p>Given a .txt file containing a text of some sort, generate a word cloud. A word cloud is a graphic that displays the most common words in a text in a randomized manner. The font size of a word is larger if that word appears more frequently, and the font size is smaller if a word appears less frequently. The word simply does not appear at all in the graphic if the word appears in the text very infrequently.</p>
+    <p>The .txt file that I test your code with may be quite large (hundreds, perhaps thousands of sentences) but not be unreasonably large. You must write your program so that regardless of what text I give you, your program will generate an appropriate word cloud based on that text.
+    </p>
+    <p>I will give you the code that can pull in the contents of a .txt file and store all of its text in a single String variable in Java. So your task is to generate the word cloud based on the text that appears in the .txt file.</p>
+
+<h2>General Recommended Strategy:</h2>
+<p>Create a String array. Write a for-loop that stores each individual word of the text in its own element. For example, suppose you have the following text stored in a String variable: <code>A sunny day is a day.</code> In the String array you created, you would store <code>A</code> as element <code>0</code>, <code>sunny</code> as element <code>1</code>, <code>day</code> as element <code>2</code>,  <code>is</code> as element <code>3</code>, <code>a</code> as element <code>4</code>, and <code>day</code> as element <code>5</code>. If it is unclear to you how you would go about writing a for-loop that does this, then complete the codingbat String-1 problems. Then complete String-2 problems involving for-loops until it becomes clear how you would accomplish this. As discussed in class, the String methods you want to focus on in the codingbat problems are the ones listed on the <a href="https://apstudents.collegeboard.org/ap/pdf/ap-computer-science-a-java-quick-reference_0.pdf">AP CS-A Reference Sheet</a> under the String section. You will not need to use the <code>compareTo</code> String method in order to complete this project.</p>
+<p>Once you have done this, you want to standardize the data. What I mean by this is you want to modify the data in the array to ensure that you can use the data for the intended purpose. For example, in generating a word cloud, case is something you want to ignore. There are a variety of ways you could go about ignoring case, but the most straightforward way is to modify the string array so that all the characters are lowercase. Once you have changed all the elements in your array to lowercase, you don't have to worry about it past that point in your code. Note that Java has a built in string method called <code>toLowerCase()</code>. So <code>word.toLowerCase()</code> would return the string stored in word but in all lowercase characters.</p>
+<p>There may be other ways that you need to standardize the data in your array. You want to make sure to remove any leading spaces or trailing spaces from each element. This is because the String <code>" turtle".equals("turtle")</code> would return false. To accomplish this, you will need a for-loop to cycle through each element in your string array, and then you would need to implement some process on each element that removes the leading or trailing spaces.</p>
+<p>The text I give you could contain two spaces after each period instead of one. The text I give you could also occasionally have minor typos where there are two spaces between two words instead of one. The reason I'm making you take such things into account is to simulate a user pasting in whatever text they want a word cloud of and then pressing go. Generally speaking, you should always assume the users who use your program will do stupid things. Note that I will be generous and let you assume the text has no typos regarding spelling (we are going to assume that the user does the bare minimum and submits a text where nothing is underlined in red).</p>
+<p>Once you have the data standardized, now you want to count. Create a separate int array with the same number of elements as the string array. For each element in the string array, count up the number of times that element appears in your string array in total. Store the count in the corresponding element in the int array. For example,</p>
+<code><pre>
+    {"a", "sunny", "day", "is", "a", "sunny", "day"}
+    {  2,      2,     2,     1,   2,       2,     2}
+</pre></code>
+<p>Since the element <code>"a"</code> appears twice in the string array, you store a <code>2</code> for "a". For similar reasons, a <code>2</code> is stored for the <code>"sunny"</code> and <code>"day"</code>. Since <code>"is"</code> appears only once in the string array, you store a <code>1</code> in the corresponding element of the int array.</p>
+<p>Now we are getting closer to having the data in a format that makes it possible to locate the most frequently occurring words in the text. Note that the example given above is a really short text. The text I give you will be significantly longer, perhaps thousands of sentences. So when you've finished running your program up to this point, you aren't going to have a tie like this. To make it easier to work with the data, I'd recommend removing duplicates. So for the example above, I'd suggest turning the array into this:</p>
+<code><pre>
+    {"a", "sunny", "day", "is", "", "", ""}
+    {  2,      2,     2,     1,  0,  0,  0}
+</pre></code>
+<p>Once you have done that, it is easier to see how many elements in the array you don't need. Once you figure that out, I'd recommend creating a new array that is shorter like this:</p>
+<code><pre>
+    {"a", "sunny", "day", "is"}
+    {  2,      2,     2,     1}
+</pre></code>
+<p>From here, you want to locate the most frequently occurring words. You will use these words to create the word cloud. Make plenty use of <code>Math.random()</code> so that the word cloud you create is non-deterministic. This will be the most fun part of the process. The only main requirement here is that the frequency of a word should determine its font-size.</p>
+
+
+<h2>Grading:</h2>
+Since this project is complex, what I'm looking for will vary depending on your approach. Here is gist of how I plan to grade you:
+<ul>
+    <li>1 Point: Are you able to print out a list of words (with no repeats) along with their corresponding frequencies? Have you accurately standardized the data so that it ignores case? Have you accurately gotten rid of leading and trailing spaces?</li>
+    <li>1 Point: Are you able to print out that same list of words but with non-significant words removed? In other words, does the word cloud you generate ignore non-significant words? For example, even though the word "the" probably occurred most frequently in the text, you would not want to include "the" in a word cloud that you generate because word clouds are intended to be a way of summarizing something; "the" doesn't provide a meaningful summary. You will need to do a bit of research to get a list of the most common English words. Once you have located such a list, you have theoretically learned enough in class so far to be able to ignore those words. If you need a hint on how to do this, just ask.</li>
+    <li>1 Point: Assuming that your list of words and their frequencies is correct, are you able to generate a word cloud? The word cloud should not contain any overlapping words. It should be non-deterministic (i.e., each time you run your program, the word cloud it creates will be different in its arrangement). The font size of a word should grow larger depending on the frequency of the word. Use a mono-spaced font because StdDraw does not give you a way to lookup the amount of space a word takes up.</li>
+    <li>1 Point: Creativity. This is the much hated catch-all category for where I'm looking for if you went over and beyond. If you do a google images search for word clouds, you will see some that look boring and some that try to do something more creative. Get things working to the point where you are able to generate a boring word cloud to ensure you can earn the point in the previous category. Then begin your attempt at generating a creative word cloud. A good though not necessarily perfect effort is what I'm looking for here.</li>
+</ul>
+</body>
+</html>
