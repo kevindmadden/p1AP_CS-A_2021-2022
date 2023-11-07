@@ -7,15 +7,45 @@
 <body>
     <h1>Project #03 - Snow, Arrays, and Loops</h1>
     <h2>Description:</h2>
-        <p>Improve the quality of the snow animation we went over in class. If you wish, you can also make something of your own from scratch as long as it meets the below requirements.
-        </p>
+        <p>Create an animation that depicts an animation of snow falling.</p>
     <h2>Requirements:</h2>
     <ol>
-        <li>Create at least two <strong>new</strong> arrays to use in making improvements to the snow animation.</li>
-        <li>Use of for-loops to cycle through the elements in the new arrays you create.</li>
-        <li>The improvement(s) you make must be meaningful.</li>
-        <li>Examples of non-meaningful improvements:
+        <li>Create a snowflake class that stores the properties of each individual snowflake.</li>
+        <li>Your snowflake class should have a calculate and draw method.</li>
+        <li>In your main class, create an array of snowflake objects. Then use a for-loop to loop through the array and store in each slot a newly created snowflake object.</li>
+        <li>In your main class, inside your animation loop, loop through and call calculate on each snowflake. Somewhere later in your animation loop, loop through and call draw on each snowflake.</li>
+        <li>The snow in your snowfall animation should fall indefinitely.</li>
+        <li>Warning: do not copy and paste the example code we went over in class and try to replace what you need to. Learn from what we did in class, and use it to build your snowflake class and main class from the ground up. </li>
+    </ol>
+    <h2>Tips:</h2>
+    <ul>
+        <li>In order to make the snowflakes keep falling, make each snowflake "re-fall." In other words, when the snowflake drops below the screen, reset its position so that it is above the screen.</li>
+        <li>This is your first major project assignment. You need to build your code in small testable chunks.</li>
+        <li>Some examples of small testable steps:</li>
+        <ul>
+            <li>Create your Main class and Snowflake class. In your snowflake class, create an xPos and yPos instance variable. Create a constructor that accepts no parameters and sets the values of this.xPos and this.yPos to 50. Create a draw method in your snowflake class that draws a circle at the xPos and yPos. In your main class, create one new snowflake object. In your animation loop, call the draw method on your snowflake. You should see a single stationary snowflake in the middle of the screen.</li>
+            <li>Add a calulate method to your snowflake class. Make a new instance variable for yVel. Set the default value for yVel in the constructor to 50. In your main method, call calulate on the snowflake in your animation loop. You should see a single stationary snowflake falling.</li>
+            <li>Make adjustments to your snowflake class so that the snowflake varies randomly in its starting position, velocity, size, etc. Test again to make sure your adjustments worked.</li>
+            <li>Make an empty array of 5 snowflake objects. Call the array snowflakes. Write a for-loop that cycles through the empty array. Create a new snowflake object at the start of your for-loop. Store the new snowflake object in the slot of the array that your for-loop is focused on for that iteration. Replace where you are currently drawing a single snowflake with a for-loop that cycles through your snowflakes array and draws the snowflake in each slot. Do the same thing for where you are currently calling calculate on a single object. Test to make sure your code works for all five snowflakes.</li>
+            <li>As you write your code, continue making adjustments in small, testable steps.</li>
+        </ul>
+
+    </ul>
+    <h2>Grading</h2>
+    <ol start="0">
+        <li>Your code errors out while running or does not run at all. Or you do not meet one or more of the requirements stated in the requirements section. Or your snowfall animation does not resemble falling snow.</li>
+        <li>Your snow falls in a straight line all at once.</li>
+        <li>Your snowflakes fall with varying velocities (and thus at varying angles).</li>
+        <li>Incorporate a few other unique variations in regard to the snowflakes themselves. Snowflakes could be varying sizes and shrink over time. You could use trigonometric functions to incorporate some oscillation in regard to the position or color of the snowflakes. These are just a few examples. Come up with other things on your own too! Have fun with it!</li>
+        <li>Implement a complex feature in your main method that reacts in some way to the snowflakes or causes the snowflakes to behave in a different manner.
             <ul>
+               <li>Example of a reaction to the snowflakes in the main method: You could make the snow "stick" to the ground. To do this, you could have your calculate method return a boolean value. Return <code>false</code> if the snowflake does not hit the ground in a given frame. Return <code>true</code> if it does hit the ground. In your main method react to this by increasing the level of the snow on the ground.</li>
+                <li>Example of something in the main method impacting the snowflakes: You could have lighter and darker clouds in your snowflake animation. If there is a darker cloud, you could have the snowflakes in that section of the screen fall faster and be larger. To accomplish this, you could have your calculate method accept a couple more parameters. Then from your main method you can pass in the location of the darker cloud. When you reset a snowflake to fall again, you can make the snowflake be larger if it falls from the darker cloud.</li>
+            </ul>
+    </ol>
+        <!---
+        <li>Examples of non-meaningful improvements:
+            <ul>f
                 <li>You create a String array with a single element, perhaps to store the name of a color. You then use a for-loop that runs once to cycle through the one element in the array.</li>
                 <li>You change the color of the snowflakes to black.</li>
             </ul>
@@ -29,6 +59,6 @@
                 <li>Create arrays to store positions of clouds floating across the sky.</li>
                 <li>Create an array to store wind related affects on snowflakes.</li>
             </ul></li>
-    </ol>
+    </ol>-->
 </body>
 </html>
