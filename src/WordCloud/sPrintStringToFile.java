@@ -3,7 +3,6 @@ package WordCloud;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,7 +22,7 @@ public class sPrintStringToFile {
 
         Path currentRelativePath = Paths.get("");
         String s = currentRelativePath.toAbsolutePath().toString();
-        URL path = sUknown_LiteraryAnalysis.class.getResource("/WordCloud/"+inputFileName);
+        URL path = WordCloud.class.getResource("/WordCloud/"+inputFileName);
         File f = new File(path.getFile());
         //BufferedReader reader = new BufferedReader(new FileReader(f));
 
