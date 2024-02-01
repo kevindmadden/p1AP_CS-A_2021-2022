@@ -9,46 +9,47 @@
 <h2>Baseline Requirements</h2>
 <ul>
     <li>Play the game Asteroids for a bit if you are not already familiar with the game. Obviously you need to be familiar with the game in order to recreate it.</li>
-    <li>At a minimum, you should have a Main class, Ship class, Asteroid Class, and Bullet class.</li>
-    <li>Create an ArrayList of Bullet objects and an Arraylist of Asteroid objects in your Main class.</li>
+    <li>At a minimum, you should have a Main class, Ship class, Asteroid class, and Bullet class.</li>
+    <li>Create an ArrayList of Bullet objects and an Arraylist of Asteroid objects in your Main class. For any other logic in your code, feel free to use whatever type of array you would like to (though I'd recommend using ArrayList so that you get more practice with it).</li>
     <li>For each of your classes, follow the MVC framework we've been using all year. In other words, you need to have a calculate method and draw method in each of your classes.</li>
     <li>All instance variables in your classes should be private.</li>
     <li>The up arrow key should control the ship's acceleration, not its velocity. Please make sure to get help on this if you cannot figure it out. If you haven't been in a physics class yet, I might need to provide you with additional explanation beyond what I've provided here.</li>
-    <li>To simplify things, make your bullet circles and your asteroids circles (as opposed to jagged polygons with n-sides).</li>
+    <li>To simplify things, make your bullets circles and your asteroids circles (as opposed to jagged polygons with n-sides).</li>
 </ul>
 
+<h2>Tips</h2>
+<li>Working with multiple different classes the first time is very confusing, but  simply  Simply completing the reading may not be sufficient to understand how to complete this project. Given that this is the first time you are working with multiple different classes, a lot of your questions will be something along the lines of "How do I access that here?". </li>
+
+<h2>Grading</h2>
 <ol start="0">
     <li>Your code errors out while running or does not run at all. Or you do not meet one or more of the baseline requirements.</li>
-    <li><ul>
-        <li>Bullets should fire in the direction the ship is facing. You can use the center point of your ship and the top of your ship to calculate the slope of that line. You should set the xVel and yVel of the bullet proportionally to the ratio of the rise over run of that line.</li>
-        <li>The number of bullets you can shoot at once should be limited and spaced out.</li>
-        <li>When a bullet collides with an asteroid, the bullet and asteroid should disappear, and a new asteroid is spawned.</li>
+    <li> Bullet Logic
         <ul>
-            <li>To accomplish this, you will need to write a method that detects whether two circles are colliding. I'd suggest putting this method, <code>isCircleInCircle</code> in your main method as a static method (similar to the methods in our animation template for detecting whether points are in rectangles or circles.</li>
-            <li>You will need six parameters for this method: the xPos, yPos, and radius for each of the two circles.</li>
-            <li>To detect whether two circles are colliding, you need to think about what the distance between the centers of the two circles needs to be in order for the circles to be intersecting. Draw out a diagram of the situation if you get stuck.</li>
-        </ul>
+        <li>Bullets should fire in the direction the ship is facing. You can use the center point of your ship and the tip of your ship to calculate the slope of that line. You should set the xVel and yVel of the bullet proportionally to slope of that line.</li>
+        <li>Bullets should have a limited range. In other words, even if a bullet has not hit an asteroid, it should still disappear once it has traveled a certain distance. (Hint: Remove the bullet from the array once it has traveled a certain distance).</li>
+        <li>The number of bullets you can shoot at once should be limited. (Hint: Only allow a bullet to be fired if your array of bullets is under a certain number of elements.)</li>
+        <li>The bullets your ship shoots should be spaced out, not a continuous stream. (Hint: Link this to a timer of some sort.)</li>
     </ul></li>
-    <li><ul>
-        <li>When a bullet collides with a large asteroid, the bullet should disappear, and the large asteroid should break up into two smaller asteroids. I'd suggest having the ability in the Asteroid constructor to specify the radius of the asteroid. Then when the larger asteroid gets destroyed, you can spawn two smaller asteroids. The larger asteroid should get removed from the asteroid ArrayList and the smaller asteroid should get added to the ArrayList</li>
-        <li>When you shoot a smaller asteroid, that asteroid completely disappears and is removed from the ArrayList.</li>
-        <li>When the ship collides with an asteroid, it should trigger a game over screen. You can approximate the hitbox as a circle around the triangle such that when a circular asteroid collides with the red circle around the ship, that counts as a hit.</li>
-        <img src="AsteroidShipHitboxSimple.png">
-    </ul>
-    <li>Continue expanding on your game.</li>
+    <li> Asteroid Logic
     <ul>
-        <li>Everything should wrap around, including bullets, asteroids, and the ship. Have a buffer zone to simplify this (in other words, don't try to make it so that part of the ship appears at the bottom of the screen and the other part of it at the top of the screen simultaneously).</li>
-        <li>Bullets should have a limited range. In other words, they should disappear once they have traveled a certain distance. I would suggest tracking the total distance a bullet has traveled in an instance variable of the bullet class. If you detect a bullet has traveled over a particular distance, then remove the bullet from the array.</li>
-        <li>Implement a scoring system in your game, and display the score as text in your game. New asteroids should spawn at higher rates as your score increases.</li>
-        <li>Make jet fuel appear behind your ship whenever you are accelerating your ship.</li>
+        <li>To detect whether a bullet and asteroid are colliding, you need to be able to detect whether two circles are colliding. Think about the radii of the two circles and what the distance between the centers of the two circles needs to be in order for the circles to be intersecting. Draw out a diagram of the situation if you get stuck. I'd suggest naming the method, <code>isCircleInCircle</code>, and putting it in your main method (similar to the methods in our animation template for detecting whether points are in rectangles or circles).</li>
+        <li>When a bullet collides with an asteroid, the asteroid <strong>and</strong> the bullet should disappear. So remove both asteroid and bullet from their respective arrays.</li>
+        <li>Larger asteroid should break up into smaller asteroids when hit. So you are removing the larger asteroid when it is hit, and then you are adding two smaller asteroids to the array.</li>
+        <li>Detect when an asteroid hits your ship. In other words, you can draw an invisible circle inside your triangular ship. When an asteroid hits this circle, you can count this as a collision with your ship.</li>
+        <li>When the ship collides with an asteroid, it should take away one life, eventually
     </ul>
-    <li>Add power-ups</li>
-        <li>Have power-ups that occasionally spawn on the screen. When your ship runs over the power-up, that activates the power-up for a limited period of time. You can track the total amount of time elapsed by creating a totalTimeElapsed variable that gets increased by the timeElapsed between each frame. You can use this information to limit the amount of time the power-up is active.</li>
-        <li>Ideas for power-ups:</li>
+    <li>Finishing Touches</li>
+    <ul>
+        <li>Everything should wrap around, including bullets, asteroids, and the ship. You should have a "buffer zone" past the edge of the screen so that you don't have to draw objects simultaneously at two separate edges of the screen.</li>
+        <li>Implement a scoring system in your game, and display the score as text in your game. New asteroids should spawn at higher rates as your score increases.</li>
+        <li>Make jet fuel appear behind your ship whenever you are accelerating it.</li>
+    </ul>
+    <li>To Infinity and Whatever</li>
         <ul>
-            <li>Piercing bullets</li>
+            <li>Add a unique flair to your game that affects the game mechanics. Examples include but are not limited to adding different power-ups or adding alien ships that try to shoot you.</li>
+            <li>Please check with me before implementing your unique flair so that I can ensure it is of a level of complexity to get you to a 4.</li>
         </ul>
-
+     </li>
 </ol>
 
 </body>
